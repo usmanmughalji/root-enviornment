@@ -15,9 +15,9 @@ RUN set -ex; \
     bash \
     sudo \
     fakeroot \
-   && apt-get autoclean \
-   && apt-get autoremove \
-   && rm -rf /var/lib/apt/lists/*
+  && apt-get autoclean \
+  && apt-get autoremove \
+  && rm -rf /var/lib/apt/lists/*
     
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
