@@ -19,5 +19,5 @@ ENV HOME=/root \
     LANGUAGE=en_US.UTF-8 \
     LC_ALL=C.UTF-8
 
-RUN sudo snap install docker
+RUN apt-get install -y docker-compose
 RUN sudo dockerd
