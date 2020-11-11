@@ -31,10 +31,6 @@ ENV HOME=/root \
     LC_ALL=C.UTF-8 \
     RUN_XTERM=yes \
     RUN_UNITY=yes
-    
-RUN adduser ubuntu
-
-RUN sudo usermod -a -G sudo ubuntu
 
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -49,7 +45,6 @@ RUN sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 
 COPY . /app
 RUN chmod +x /app/run.sh
-USER ubuntu
 
 CMD ["/app/run.sh"]
 
