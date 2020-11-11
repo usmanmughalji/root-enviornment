@@ -35,6 +35,7 @@ RUN sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/
     
 RUN sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
 RUN sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+RUN sudo systemctl start docker
 
 RUN cd /usr/src/app
 RUN git clone https://github.com/gautamajay52/TorrentLeech-Gdrive torrentleech-gdrive
