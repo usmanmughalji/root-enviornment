@@ -1,0 +1,10 @@
+{
+  "name": "Testing-Stuff",
+  "description": "Testing For Docker",
+  "keywords": ["Docker"],
+  "env": {
+  },
+  "website": "",
+  "repository": "",
+  "stack": "container"
+ }
