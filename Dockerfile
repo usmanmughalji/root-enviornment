@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN set -ex; \
    apt-get -qq update && \
-   apt-get install -y software-properties-common \
+   apt-get install -y --no-install-recommends \
     ubuntu-desktop \
     apt-transport-https \
     ca-certificates \
