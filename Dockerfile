@@ -34,9 +34,7 @@ ENV HOME=/root \
     
 RUN adduser ubuntu
 
-RUN echo "ubuntu:ubuntu" | chpasswd && \
-    adduser ubuntu sudo && \
-    sudo usermod -a -G sudo ubuntu
+RUN sudo usermod -a -G sudo ubuntu
 
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
