@@ -17,6 +17,7 @@ RUN set -ex; \
     wget \
     bash \
     apt-transport-https \
+    gnupg-agent \
     ca-certificates \
     snapd \
     fakeroot \
