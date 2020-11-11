@@ -5,14 +5,19 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN set -ex; \
    apt-get -qq update && \
    apt-get install -y software-properties-common \
+    ubuntu-desktop \
     apt-transport-https \
     ca-certificates \
     curl \
     gnupg-agent \
     git \
     snapd \
+    bash \
     sudo \
-    fakeroot
+    fakeroot \
+   && apt-get autoclean \
+   && apt-get autoremove \
+   && rm -rf /var/lib/apt/lists/*
     
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
