@@ -2,8 +2,9 @@ FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get -qq update && \
-    apt-get install -y software-properties-common \
+RUN set -ex; \
+   apt-get -qq update && \
+   apt-get install -y software-properties-common \
     apt-transport-https \
     ca-certificates \
     curl \
