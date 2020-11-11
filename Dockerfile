@@ -9,6 +9,7 @@ RUN apt-get -qq update && \
     curl \
     gnupg-agent \
     git \
+    snapd \
     sudo \
     fakeroot
     
@@ -18,6 +19,5 @@ ENV HOME=/root \
     LANGUAGE=en_US.UTF-8 \
     LC_ALL=C.UTF-8
 
-RUN sudo apt install python3
 RUN sudo snap install docker
 RUN sudo dockerd
