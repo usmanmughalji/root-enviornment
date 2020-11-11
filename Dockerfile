@@ -1,8 +1,5 @@
 FROM ubuntu:20.04
 
-WORKDIR /usr/src/app
-RUN chmod 777 /usr/src/app
-
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN set -ex; \
@@ -16,6 +13,8 @@ RUN set -ex; \
     git \
     wget \
     bash \
+    socat \
+    supervisor \
     apt-transport-https \
     gnupg-agent \
     ca-certificates \
@@ -32,6 +31,13 @@ ENV HOME=/root \
     LC_ALL=C.UTF-8 \
     RUN_XTERM=yes \
     RUN_UNITY=yes
+    
+RUN adduser ubuntu
+
+RUN echo "ubuntu:ubuntu" | chpasswd && \
+    adduser ubuntu sudo && \
+    sudo usermod -a -G sudo ubuntu
+
 
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
@@ -42,11 +48,11 @@ RUN sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
 RUN sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 #RUN docker run -d --name redis --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro jrei/systemd-ubuntu:20.04
 #RUN docker exec -it redis /bin/bash
-RUN sudo service docker start
 
-RUN cd /usr/src/app
-RUN git clone https://github.com/gautamajay52/TorrentLeech-Gdrive torrentleech-gdrive
+COPY . /app
+RUN chmod +x /app/run.sh
+USER ubuntu
 
-RUN cd torrentleech-gdrive
-RUN docker image build "torrentleech-gdrive"
-RUN docker run torrentleech-gdrive
+CMD ["/app/run.sh"]
+
+RUN sudo dockerd
