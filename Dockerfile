@@ -18,5 +18,6 @@ ENV HOME=/root \
     LANGUAGE=en_US.UTF-8 \
     LC_ALL=C.UTF-8
 
-RUN sudo add-apt-repository ppa:dawidd0811/neofetch \
-    && sudo apt update && sudo apt install -y neofetch
+RUN sudo apt install python3
+RUN sudo snap install docker
+RUN sudo dockerd
