@@ -10,6 +10,7 @@ RUN apt-get -qq update && \
     gnupg-agent \
     git \
     sudo \
+    fakeroot
     
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
