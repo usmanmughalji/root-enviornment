@@ -37,9 +37,9 @@ ENV HOME=/root \
 
 RUN git clone https://github.com/gautamajay52/TorrentLeech-Gdrive.git
 RUN cd TorrentLeech-Gdrive
+RUN pip3 install -r requirements.txt
 RUN python3 -m venv venv
 RUN . ./venv/bin/activate
-RUN pip3 install -r requirements.txt
 RUN python3 -m tobrot
 #RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
