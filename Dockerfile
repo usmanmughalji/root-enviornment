@@ -32,5 +32,5 @@ RUN wget https://raw.githubusercontent.com/gautamajay52/TorrentLeech-Gdrive/mast
 RUN python3 -m venv venv
 RUN . ./venv/bin/activate
 RUN pip3 install -r requirements.txt
-
-CMD ["bash","start.sh"]
+RUN python3 -m tobrot
+#CMD ["bash","start.sh"]
