@@ -20,13 +20,11 @@ RUN wget -O /app/mine/gclone.gz https://git.io/JJMSG
 RUN gzip -d /app/mine/gclone.gz
 RUN chmod 0775 /app/mine/gclone
 
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
+COPY . .
+
 RUN git clone https://github.com/gautamajay52/TorrentLeech-Gdrive.git
-RUN cd TorrentLeech-Gdrive && ls
-#RUN pip3 install --no-cache-dir -r requirements.txt
-#RUN python3 -m tobrot
+RUN cd TorrentLeech-Gdrive
 
-#COPY requirements.txt .
-#RUN pip3 install --no-cache-dir -r requirements.txt
-#COPY . .
-#CMD ["bash","start.sh"]
-
+CMD ["bash","start.sh"]
