@@ -33,19 +33,23 @@ ENV HOME=/root \
     RUN_UNITY=yes
 
 
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+RUN git clone https://github.com/gautamajay52/TorrentLeech-Gdrive.git
+RUN cd TorrentLeech-Gdrive
+RUN python3 -m venv venv
+RUN . ./venv/bin/activate
+RUN pip3 install -r requirements.txt
+RUN python3 -m tobrot
+#RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-RUN sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
-    && sudo apt-get update && sudo apt-get install -y docker-ce
+#RUN sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+#   && sudo apt-get update && sudo apt-get install -y docker-ce
     
-RUN sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
-RUN sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+#RUN sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+#RUN sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 #RUN docker run -d --name redis --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro jrei/systemd-ubuntu:20.04
 #RUN docker exec -it redis /bin/bash
 
-COPY . /app
-RUN chmod +x /app/run.sh
+#COPY . /app
+#RUN chmod +x /app/run.sh
 
-CMD ["/app/run.sh"]
-
-RUN sudo dockerd
+#CMD ["/app/run.sh"]
