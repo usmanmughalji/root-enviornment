@@ -18,6 +18,7 @@ RUN set -ex; \
     apt-transport-https \
     gnupg-agent \
     ca-certificates \
+    python3-pip \
     python3-venv \
     snapd \
     fakeroot \
@@ -36,7 +37,7 @@ ENV HOME=/root \
 
 RUN git clone https://github.com/gautamajay52/TorrentLeech-Gdrive.git
 RUN cd TorrentLeech-Gdrive
-RUN pip install -r requirements.txt
+RUN pip3 install aiohttp aria2p hachoir Pillow pyrogram tgcrypto youtube-dl hurry.filesize
 #RUN python3 -m venv venv
 #RUN . ./venv/bin/activate
 RUN python3 -m tobrot
