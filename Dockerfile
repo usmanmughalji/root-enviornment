@@ -18,6 +18,7 @@ RUN set -ex; \
     apt-transport-https \
     gnupg-agent \
     ca-certificates \
+    python3-pip \
     python3-venv \
     snapd \
     fakeroot \
