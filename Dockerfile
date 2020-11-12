@@ -11,15 +11,15 @@ RUN apt -qq update
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Kolkata
 
-RUN apt -qq install -y git wget curl python3 python3-pip python3-venv
+RUN apt -qq install -y git wget curl busybox unzip unrar tar python3 ffmpeg python3-pip python3-venv
 #RUN apt -qq install -y git aria2 wget curl busybox unzip unrar tar python3 ffmpeg python3-pip python3-venv
 RUN wget https://rclone.org/install.sh
 RUN bash install.sh
 
-#RUN mkdir /app/mine
-#RUN wget -O /app/mine/gclone.gz https://git.io/JJMSG
-#RUN gzip -d /app/mine/gclone.gz
-#RUN chmod 0775 /app/mine/gclone
+
+RUN wget -O gclone.gz https://git.io/JJMSG
+RUN gzip -d gclone.gz
+RUN chmod 0775 gclone
 
 #COPY requirements.txt .
 #RUN pip3 install --no-cache-dir -r requirements.txt
